@@ -150,12 +150,9 @@ def main() -> int:
         args.changes_dir.mkdir(parents=True, exist_ok=True)
         if args.state_dir is None:
             shared = git_common_dir(args.changes_dir)
-            legacy = shared / "nano-multiagent" / "change-unit-ids"
-            args.state_dir = (
-                legacy
-                if legacy.is_dir()
-                else shared / "dev-workflow-skills" / "change-unit-ids"
-            )
+            # Older project worktrees can allocate concurrently in a fresh clone.
+            # Use their on-disk namespace even before it has been created.
+            args.state_dir = shared / "nano-multiagent" / "change-unit-ids"
         next_number = reserve_next_number(args.changes_dir, args.state_dir)
     except (OSError, ValueError, subprocess.CalledProcessError) as error:
         parser.error(str(error))

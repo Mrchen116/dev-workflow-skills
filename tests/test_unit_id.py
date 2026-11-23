@@ -110,6 +110,9 @@ def test_default_reservation_state_is_shared_by_git_worktrees(
     )
 
     assert _allocate(changes_dir, change_type="feat") == "feat-1"
+    # A worktree still using the previous allocator sees that reservation.
+    legacy = repository / ".git/nano-multiagent/change-unit-ids"
+    assert (legacy / "last-number").read_text().strip() == "1"
     assert (
         _allocate(second_worktree / "docs" / "changes", change_type="bugfix")
         == "bugfix-2"
