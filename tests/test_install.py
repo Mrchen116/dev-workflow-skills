@@ -24,3 +24,11 @@ def test_register_editable_links_and_preserve_conflicts(tmp_path):
     installer.install(source, [dest, dest])
     (skill / "SKILL.md").write_text("changed")
     assert (dest / "example/SKILL.md").read_text() == "changed"
+
+    skill.rename(source / "renamed")
+    external = dest / "external"
+    external.symlink_to(tmp_path / "another-checkout")
+    installer.install(source, [dest])
+    assert not (dest / "example").is_symlink()
+    assert (dest / "renamed").resolve() == source / "renamed"
+    assert external.is_symlink()

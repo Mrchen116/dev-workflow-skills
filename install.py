@@ -12,7 +12,17 @@ def install(source: Path, destinations: list[Path]) -> None:
         raise ValueError(f"No skills in {source}")
     pending = {}
     conflicts = []
-    for directory in destinations:
+    stale = set()
+    for directory in {path.resolve() for path in destinations}:
+        if directory.is_dir():
+            for entry in directory.iterdir():
+                previous = source / entry.name
+                if (
+                    entry.is_symlink()
+                    and entry.readlink() == previous
+                    and previous not in skills
+                ):
+                    stale.add(entry)
         for skill in skills:
             target = directory.resolve() / skill.name
             if target.is_symlink() and target.resolve() == skill.resolve():
@@ -26,7 +36,11 @@ def install(source: Path, destinations: list[Path]) -> None:
     for target, skill in pending.items():
         target.parent.mkdir(parents=True, exist_ok=True)
         target.symlink_to(skill, target_is_directory=True)
-    print(f"Registered {len(skills)} skills ({len(pending)} new links).")
+    for entry in stale:
+        entry.unlink()
+    print(
+        f"Registered {len(skills)} skills ({len(pending)} new, {len(stale)} obsolete links removed)."
+    )
 
 
 if __name__ == "__main__":
