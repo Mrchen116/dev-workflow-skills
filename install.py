@@ -44,18 +44,19 @@ def install(source: Path, destinations: list[Path]) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "--target",
-        choices=("codex", "claude"),
-        action="append",
-        help="Register with this local agent (default: both).",
-    )
-    args = parser.parse_args()
     directories = {
         "codex": Path.home() / ".agents/skills",
         "claude": Path.home() / ".claude/skills",
+        "antigravity": Path.home() / ".gemini/config/skills",
     }
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--target",
+        choices=directories,
+        action="append",
+        help="Register with this local agent (default: all).",
+    )
+    args = parser.parse_args()
     try:
         install(
             Path(__file__).resolve().parent / "skills",
