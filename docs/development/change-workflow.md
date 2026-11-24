@@ -177,7 +177,7 @@ Full unit 在 Gate 2 通过后、Bugfix lite 在首文档收口后，均有两�
 `progress.md` 写明事实和恢复条件。design/spec 由对应 owner 修订，worker 不维护影子方案。
 
 两种流程都以 milestone 退出标准能够从最终 unit tree、commits、测试和实际 evidence 逐条复核为
-准；两份简短过程记录用于恢复和交接，不以文档形式取代这些证据。全部结果统一落在 unit 分支后，进入验收阶段。
+准；两份简短过程记录用于恢复和交接，不以文档形式取代这些证据。实施提交与证据摘要在 unit 分支汇总、所需原件已按[证据规范](evidence.md#截图与录屏的交接)交接后，进入验收阶段。
 
 ## 阶段 4：selected validation gates
 

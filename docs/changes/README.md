@@ -261,6 +261,6 @@ unit_path=$unit_matches
 ## Evidence 与本地产物
 
 - 各类证据能证明什么、记录字段、保存位置和 promotion 规则见 [`docs/development/evidence.md`](../development/evidence.md)；
-- 可复查证据放在对应 milestone 的 `evidence/`，或 unit 根部的正式 review 报告中；
+- 可复查的文字结论、复现步骤和证据定位放在对应 milestone 的 `evidence/`，或 unit 根部的正式 review 报告中；
 - PID、日志、SQLite、截图缓存、临时 config 和 worktree runtime 文件保持 gitignored；
 - 证据中提炼出的长期行为进入 `docs/specs/`，长期操作约束进入 runbook。
