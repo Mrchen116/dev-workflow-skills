@@ -26,6 +26,7 @@
 |---|---|---|
 | [代码正确性](../../skills/change-code-review/SKILL.md) | 实现审查、需求遗漏、设计一致性、最终 delta 校对 | diff、调用链、相关契约与针对性测试 |
 | [Agent Context](../../skills/agent-context-review/SKILL.md) | 改变模型可见内容及选择、加载、注入、更新或恢复 | 设计样例；实际交付输入与后续行动 |
+| [前端设计](../../skills/frontend-design/SKILL.md) | 新建或重做界面，需要确定视觉方向、字体、配色和布局 | 贴合需求和项目风格的设计方案及实际画面 |
 | [前端体验](../../skills/frontend-experience-review/SKILL.md) | 信息组织、视觉或交互影响用户理解和操作 | 实际原型/产品画面、连续操作与受影响平台 |
 | [产品旅程](../../skills/product-journey-review/SKILL.md) | 需要跨组件证明用户从真实入口完成目标 | 实际入口、交付结果与关键恢复过程 |
 | [性能](../../skills/performance-review/SKILL.md) | 性能是目标，或有具体运行代价需要判定 | 同条件基线/候选测量、行为不变量 |
