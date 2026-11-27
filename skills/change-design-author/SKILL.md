@@ -20,7 +20,7 @@ description: "Full unit 首文档已定稿，需要对齐技术方案、delta-sp
 - 按 [specs/CONTRIBUTING](../../docs/specs/CONTRIBUTING.md#哪些行为进入长期契约) 比较本次前后的消费者保证，在现有设计中写受影响的条款及 delta，或说明 `no spec delta` 的依据，不提前覆盖 current spec。
 - 设计涉及从旧状态到新状态的一次性部署迁移时，在 unit 根目录生成固定命名的 `deployment-prompt.md`，并从 design 链接；无此需要不生成。写作前读取 [部署提示词约定](../../docs/changes/README.md#一次性部署提示词)，分清迁移必需修改、隔离验证证据与生产有限结果核对。将功能、幂等性和失败恢复验证纳入 milestone 的隔离/副本验收，不转交上线后补测；将生产验证限于项目 runbook 和实际授权范围。一次性历史整理交由部署 Agent 执行，不为此加入冗余的产品启动迁移或长期兼容逻辑。
 
-在已有 design 中按 [能力组合](../../docs/development/skill-composition.md) 写明本次问题、能力/阶段、证据方法及可复用定位；设计审查检查遗漏。选择与实际影响相称，能力可供作者自检和独立审查复用，不固定 Agent 数。
+在已有 design 中按 [能力组合](../../docs/development/skill-composition.md) 写明审查编组、本次问题、能力/阶段、证据方法及共享定位；设计审查检查遗漏与不必要拆组。选择与实际影响相称，共享材料或运行现场的问题归入同一编组，不固定能力或 Agent 数。
 
 模块接口、职责或测试边界需要设计时可用 [codebase-design](../codebase-design/SKILL.md)；普通配置、文案或局部实现不必调用。
 

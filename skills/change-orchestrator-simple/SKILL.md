@@ -22,7 +22,7 @@ description: "实施已完成事前对齐的 Full 或 Bugfix lite change unit �
 
 ## 审查与交付
 
-按 [workflow 的审查阶段](../../docs/development/change-workflow.md#阶段-4selected-validation-gates) 执行当前生命周期底线，按 [能力组合](../../docs/development/skill-composition.md) 将本次问题组合给未参与受审实现的审查者；不复制固定角色套餐。代码正确性、需求/设计覆盖和最终 delta 校对由同一次独立代码审查承接，专项按问题选择。
+按 [workflow 的审查阶段](../../docs/development/change-workflow.md#阶段-4selected-validation-gates) 执行当前生命周期底线，按 unit 已划分的审查编组和 [能力组合](../../docs/development/skill-composition.md) 派发给未参与受审实现的审查者（实施中新增影响时按需调整编组），不按能力逐行拆子代理或复制固定角色套餐。代码正确性、需求/设计覆盖和最终 delta 校对由同一次独立代码审查承接，专项按问题选择。
 
 派发前读取 [输入与收口](../change-orchestrator/references/validation.md)，只给必要目标、版本、问题、能力和证据。执行者返回结果，由主 Agent 串行归集 `review.md`；不为等待另一项结果再启动复审。后续问题由主 Agent 修复，冻结后一次补验失效判断，不新派修复 worker。
 

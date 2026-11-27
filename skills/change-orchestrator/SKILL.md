@@ -20,7 +20,7 @@ description: "用户点名 $change-orchestrator，要求按原流程实施已通
 
 ## 独立审查
 
-按 [workflow 审查阶段](../../docs/development/change-workflow.md#阶段-4selected-validation-gates) 保持本生命周期底线，使用 [能力组合](../../docs/development/skill-composition.md) 根据本次问题派发。代码正确性、实现覆盖与 delta 校对一次完成；专项按影响组合，不固定每项一个 Agent。
+按 [workflow 审查阶段](../../docs/development/change-workflow.md#阶段-4selected-validation-gates) 保持本生命周期底线，按 unit 已划分的审查编组和 [能力组合](../../docs/development/skill-composition.md) 派发（新增影响时按需调整编组）。代码正确性、实现覆盖与 delta 校对一次完成；专项按影响组合，不按能力逐行拆 Agent。
 
 真实旅程需要启动服务时，由主 Agent 按[项目规则与环境](../../docs/development/project.md)集中准备隔离现场，交接运行入口、版本、授权与场景增量。共享有效构建和证据，必要观察仍由独立执行者判断。
 
